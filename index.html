@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta name="description" content="3 проект Ольги Ярцевой">
+  <meta name="keywords" content="html, css, javascript">
+  <meta name="author" content="Ярцева Ольга">
+  <style>*,*::before,*::after {outline: 1px solid red}</style>
+</head>
+
+<body class="page">
+  
+  <header class="header">
+    <img class="header__logo" src="images/header__logo.svg" alt="логотип проекта Mesto">
+  </header>  
+
+  <main class="content">
+
+    <section class="profile">
+      <img class="profile__avatar" src="./images/photo_profile.jpg" alt="фото Жака Кусто">
+      <div class="profile__info">
+        <div class="profile__main-info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+        </div>
+        <p class="profile__description">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+
+    <ul class="elements">
+      <li class="element">
+        <img class="element__image" src="./images/element1.jpg" alt="старая церковь Карачаевска">
+        <div class="element__description">
+          <h2 class="element__title">Карачаевск</h2>
+          <button class="element__like"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/element2.png" alt="эльбрус">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/element3.png" alt="горы Домбая">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__like"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/element2.png" alt="эльбрус">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/element3.png" alt="горы Домбая">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__like"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/element1.jpg" alt="старая церковь Карачаевска">
+        <div class="element__description">
+          <h2 class="element__title">Карачаево-Черкесия</h2>
+          <button class="element__like"></button>
+        </div>
+      </li>
+    </ul>
+    
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+
+  <section class="popup">
+    <form class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input class="popup__name" type="text" name="popup__name" value="Жак-Ив Кусто">
+      <input class="popup__role" type="text" name="popup__role" value="Исследователь океана">
+      <button class="popup__button-submit" type="submit">Сохранить</button> 
+      <button class="popup__button-close" type="button"></button> 
+     </form>
+  </section>
+
+<script src="./scripts/scripts.js"></script>
+</body>
+</html>
