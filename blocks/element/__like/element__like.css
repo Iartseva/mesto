@@ -5,6 +5,7 @@
   border: 0;
   align-self: center;
   background-color: transparent;
+  flex-shrink: 0;
 }
 
 .element__like:hover {
