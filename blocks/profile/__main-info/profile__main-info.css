@@ -4,7 +4,7 @@
   margin: 0 0 16px;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 624px) {
   .profile__main-info {
     margin: 0 auto 14px;
     justify-content: center;

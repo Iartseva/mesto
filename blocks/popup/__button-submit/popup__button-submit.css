@@ -6,7 +6,6 @@
   border-radius: 2px;
   background: #000000;
   margin: 48px auto 37px;
-  border-bottom: 1px solid #000000;
 
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -23,7 +22,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 624px) {
   .popup__button-submit {
     max-width: 238px;
     height: 46px;

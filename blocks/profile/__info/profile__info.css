@@ -13,7 +13,7 @@
    }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 624px) {
   .profile__info {
     margin-right: 0;
    }
