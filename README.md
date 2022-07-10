@@ -6,7 +6,6 @@
 Проект доработан в части реализации дополнительной логики: создание карточек из js, создание дополнительных форм и попапов. Реализована возможность создания и удаления новой карточки, возможность простаить лайк любой карточке.
 В проекте применены методы работы с массивами, функции, технологии работы с DOM и т.д.
 
-* [Ссылка на макеты в Figma] 1) (https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
-2) https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1
+* [Ссылка на макеты в Figma] 1. (https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1) 2. (https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 
 * [Ссылка на проект в Github Pages](https://iartseva.github.io/mesto/)
