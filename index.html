@@ -31,57 +31,24 @@
     </section>
 
     <ul class="elements">
-      <li class="element">
-        <img class="element__image" src="./images/element1.jpg" alt="старая церковь Карачаевска">
-        <div class="element__description">
-          <h2 class="element__title">Карачаевск</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/element2.png" alt="эльбрус">
-        <div class="element__description">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/element3.png" alt="горы Домбая">
-        <div class="element__description">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/element2.png" alt="эльбрус">
-        <div class="element__description">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/element3.png" alt="горы Домбая">
-        <div class="element__description">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./images/element1.jpg" alt="старая церковь Карачаевска">
-        <div class="element__description">
-          <h2 class="element__title">Карачаево-Черкесия</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-      </li>
-    </ul>
-    
+      <template id="cards">
+        <li class="element">
+          <img class="element__image" src="#" alt="#">
+          <div class="element__description">
+            <h2 class="element__title"></h2>
+            <button class="element__like" type="button"></button>
+          </div>
+          <button class="element__delete" type="button"></button>
+        </li>
+      </template>
+         
   </main>
 
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <section class="popup">
+  <section class="popup" id="popup-edit-profile">
     <div class="popup__container">
       <form class="popup__form-edit-profile" name="popup__form-edit-profile">
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -89,8 +56,29 @@
         <input class="popup__input popup__input_type_role" type="text" name="popup__input_type_role">
         <button class="popup__button-submit" type="submit">Сохранить</button> 
       </form>
-      <button class="popup__button-close" type="button"></button> 
+      <button class="popup__button-close" id="button-close" type="button"></button> 
     </div>
+  </section>
+
+  <section class="popup" id="popup-add-card">
+    <div class="popup__container">
+      <form class="popup__form-add-card" name="popup__form-add-card">
+        <h2 class="popup__title">Новое место</h2>
+        <input class="popup__input popup__input_type_place" type="text" name="popup__input_type_place" placeholder="Название">
+        <input class="popup__input popup__input_type_link" type="text" name="popup__input_type_link" placeholder="Ссылка на картинку">
+        <button class="popup__button-submit" type="submit">Создать</button> 
+      </form>
+      <button class="popup__button-close" id="close-popup-add" type="button"></button> 
+    </div>
+  </section>
+
+  <section class="popup popup_image_opacity" id="popup-image">
+    <figure class="popup__figure">
+      <button class="popup__button-close" id="close-popup-image" type="button"></button>
+      <img class="popup__image" src="#" alt="#">
+      <figcaption class="popup__caption"></figcaption>
+    </figure>
+    
   </section>
 
 <script src="./scripts/index.js"></script>
