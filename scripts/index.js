@@ -76,6 +76,7 @@ function createCard(item) {
   card.querySelector('.element__image').alt = item.name; 
   card.querySelector('.element__like').addEventListener('click', likeCreate);
   card.querySelector('.element__delete').addEventListener('click', deleteCard);
+  card.querySelector('.element__image').addEventListener('click', showPopupImage);
  
   return card;
 }
@@ -128,24 +129,12 @@ function showPopupImage(evt) {
   caption.textContent=evt.target.nextElementSibling.textContent;
 }
 
-imageButton.forEach(item => {
-  item.addEventListener('click', showPopupImage);
-});
-
 //лайки
-like.forEach(item => {
-  item.addEventListener('click', likeCreate);
-});
-
 function likeCreate(evt) {
   evt.target.classList.toggle('element__like_active');
 }
 
 //удаление карточки
-cardDeleteButton.forEach(item => {
-  item.addEventListener('click', deleteCard);
-});
-
 function deleteCard(evt) {
   evt.target.closest('.element').remove();
 }
