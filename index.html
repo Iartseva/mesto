@@ -49,7 +49,7 @@
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <section class="popup" id="popup-edit-profile">
+  <section class="popup popup_type_edit">
     <div class="popup__container">
       <form class="popup__form-edit-profile" name="popup__form-edit-profile">
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -57,11 +57,11 @@
         <input class="popup__input popup__input_type_role" type="text" name="popup__input_type_role">
         <button class="popup__button-submit" type="submit">Сохранить</button> 
       </form>
-      <button class="popup__button-close" id="button-close" type="button"></button> 
+      <button class="popup__button-close" type="button"></button> 
     </div>
   </section>
 
-  <section class="popup" id="popup-add-card">
+  <section class="popup popup_type_add">
     <div class="popup__container">
       <form class="popup__form-add-card" name="popup__form-add-card">
         <h2 class="popup__title">Новое место</h2>
@@ -69,13 +69,13 @@
         <input class="popup__input popup__input_type_link" type="text" name="popup__input_type_link" placeholder="Ссылка на картинку">
         <button class="popup__button-submit" type="submit">Создать</button> 
       </form>
-      <button class="popup__button-close" id="close-popup-add" type="button"></button> 
+      <button class="popup__button-close" type="button"></button> 
     </div>
   </section>
 
-  <section class="popup popup_image_opacity" id="popup-image">
+  <section class="popup popup_type_image" >
     <figure class="popup__figure">
-      <button class="popup__button-close" id="close-popup-image" type="button"></button>
+      <button class="popup__button-close" type="button"></button>
       <img class="popup__image" src="#" alt="#">
       <figcaption class="popup__caption"></figcaption>
     </figure>
