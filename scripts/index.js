@@ -1,4 +1,3 @@
-const popupElement = document.querySelector('.popup'); 
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
 const popupImage = document.querySelector('.popup_type_image');
@@ -7,8 +6,8 @@ const editButton = document.querySelector('.profile__edit-button'); //кнопк
 const addButton = document.querySelector('.profile__add-button');//кнопка открытия
 const closeButtons = document.querySelectorAll('.popup__button-close');//кнопки закрытия
 
-const formEdit = document.querySelector('.popup__form-edit-profile');//форма редактирования
-const formAdd = document.querySelector('.popup__form-add-card');//форма добавления карточки
+const formEdit = document.querySelector('.popup__form_type_edit-profile');//форма редактирования
+const formAdd = document.querySelector('.popup__form_type_add-card');//форма добавления карточки
 
 const inputName = document.querySelector('.popup__input_type_name'); 
 const inputDescription = document.querySelector('.popup__input_type_role'); 
@@ -22,10 +21,33 @@ const elements = document.querySelector('.elements');
 //попапы (открытие и закрытие)
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEscape);
+  formAdd.reset();
+  cleanError();
+}
+    
+function closePopupByOverlay(popup) {
+  popup.addEventListener('click', function(evt) {
+    if (evt.target !== evt.currentTarget) {
+      return;
+    }
+    closePopup(popup);
+  })
+}
+closePopupByOverlay(popupEdit);
+closePopupByOverlay(popupAdd);
+closePopupByOverlay(popupImage);
+
+function closePopupByEscape(evt, popup) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (evt.key === "Escape") {
+    closePopup(activePopup);
+  }
 }
 
 editButton.addEventListener('click', () => {
@@ -35,11 +57,22 @@ editButton.addEventListener('click', () => {
 addButton.addEventListener('click', () => {
   openPopup(popupAdd);
 });
-
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
+  
 });
+
+function cleanError() {
+  const errors = document.querySelectorAll('.popup__form-error_visible');
+  errors.forEach((error) => {
+    error.classList.remove('popup__form-error_visible');
+})
+  const inputErrors = document.querySelectorAll('.popup__input_type_error');
+  console.log(inputErrors);
+  inputErrors.forEach((inputError) => {
+    inputError.classList.remove('popup__input_type_error');
+})}
 
 //редактирование профиля
 function editProfile(evt) { 
