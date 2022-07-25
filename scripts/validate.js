@@ -12,9 +12,6 @@ enableValidation(obj);
 function enableValidation (obj) {
   const formList = Array.from(document.querySelectorAll(obj.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
     setEventListeners(formElement, obj);
   });
 };
@@ -22,8 +19,7 @@ function enableValidation (obj) {
 function setEventListeners (formElement, obj)  {
   const inputList = Array.from(formElement.querySelectorAll(obj.inputSelector));
   const buttonElement = formElement.querySelector(obj.submitButtonSelector);
-  console.log(inputList, buttonElement);
-
+  
   toggleButtonState(inputList, buttonElement, obj);
 
   inputList.forEach((inputElement) => {
@@ -71,3 +67,13 @@ function toggleButtonState (inputList, buttonElement, obj) {
     buttonElement.classList.remove(obj.submitButtonSelectorDisabled);
   }
 };
+
+function cleanError() {
+  const errors = document.querySelectorAll('.popup__form-error_visible');
+  errors.forEach((error) => {
+    error.classList.remove('popup__form-error_visible');
+})
+  const inputErrors = document.querySelectorAll('.popup__input_type_error');
+  inputErrors.forEach((inputError) => {
+  inputError.classList.remove('popup__input_type_error');
+})}
