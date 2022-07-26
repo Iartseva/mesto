@@ -29,11 +29,8 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupByEscape);
-  forms.forEach((form) => {
-  form.reset();
-  });
-  cleanError();
-}
+  }
+
     
 function closePopupByOverlay(popup) {
   popup.addEventListener('click', function(evt) {
@@ -43,6 +40,7 @@ function closePopupByOverlay(popup) {
     closePopup(popup);
   })
 }
+
 closePopupByOverlay(popupEdit);
 closePopupByOverlay(popupAdd);
 closePopupByOverlay(popupImage);
@@ -57,9 +55,14 @@ function closePopupByEscape(evt, popup) {
 buttonEdit.addEventListener('click', () => {
   openPopup(popupEdit);
   createValue();
+  cleanError();
 });
 buttonAdd.addEventListener('click', () => {
   openPopup(popupAdd);
+  formAdd.reset();
+  cleanError();
+  buttonSubmitAdd.setAttribute('disabled', true);
+  buttonSubmitAdd.classList.add('popup__button-submit_disabled');
 });
 buttonsClose.forEach((button) => {
   const popup = button.closest('.popup');
@@ -105,9 +108,6 @@ function addCard(evt) {
   const newCardImage = inputLink.value;
   cardsContainer.prepend(createCard({name: newCardName, link: newCardImage}));
   closePopup(popupAdd);
-  formAdd.reset();
-  buttonSubmitAdd.setAttribute('disabled', true);
-  buttonSubmitAdd.classList.add('popup__button-submit_disabled');
 }
 
 formAdd.addEventListener('submit', addCard);
