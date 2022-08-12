@@ -1,11 +1,12 @@
-import {showPopupImage} from './index.js'; 
-
 class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, showPopupImage) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
-  }
+    this._showPopupImage = showPopupImage;
+    this._element = this._getTemplate();
+    this._image = this._element.querySelector('.element__image');
+ }
   // получаем шаблон
   _getTemplate() {
     const cardElement = document
@@ -18,10 +19,9 @@ class Card {
   }
   //создаем карточку
   generateCard() {
-    this._element = this._getTemplate();
     this._setEventListeners(); //вызываем слушатели
-    this._element.querySelector('.element__image').src = this._link;
-    this._element.querySelector('.element__image').alt = this._name;
+    this._image.src = this._link;
+    this._image.alt = this._name;
     this._element.querySelector('.element__title').textContent = this._name;
      
     return this._element;
@@ -31,10 +31,14 @@ class Card {
     this._element.querySelector('.element__like').addEventListener('click', (evt) => {
       evt.target.classList.toggle('element__like_active')});
     
-    this._element.querySelector('.element__delete').addEventListener('click', (evt) => {
-      evt.target.closest('.element').remove()});
+    this._element.querySelector('.element__delete').addEventListener('click', () => {
+      this._element.closest('.element').remove()
+      this._element = null;    
+    });
 
-    this._element.querySelector('.element__image').addEventListener('click', showPopupImage);
+    this._image.addEventListener('click', () => {
+      this._showPopupImage(this._name, this._link);
+    });
     }
 }
 

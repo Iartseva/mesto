@@ -1,6 +1,7 @@
 .elements {
   max-width: 880px;
   width: 100%;
+  min-height: 25vh;
   margin: 0 auto;
   list-style: none;
   padding: 0;

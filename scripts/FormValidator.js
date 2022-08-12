@@ -60,15 +60,20 @@ class FormValidator {
   }
 
   cleanError() {
-    this._errors = document.querySelectorAll('.popup__form-error_visible');
+    this._errors = this._formElement.querySelectorAll(`.${this._settings.errorSelector}`);
     this._errors.forEach((error) => {
-      error.classList.remove('popup__form-error_visible');
+      error.classList.remove(this._settings.errorSelector);
     })
-    this._inputErrors = document.querySelectorAll('.popup__input_type_error');
+    this._inputErrors = document.querySelectorAll(`.${this._settings.inputErrorSelector}`);
     this._inputErrors.forEach((inputError) => {
-    inputError.classList.remove('popup__input_type_error');
+    inputError.classList.remove(this._settings.inputErrorSelector);
     })
   }  
+
+  buttonDesable(button) {
+    button.setAttribute('disabled', true);
+    button.classList.add(`${this._settings.submitButtonSelectorDisabled}`);
+  }
 }
 
 export default FormValidator;
