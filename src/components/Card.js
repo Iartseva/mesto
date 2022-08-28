@@ -32,7 +32,8 @@ class Card {
       evt.target.classList.toggle('element__like_active')});
     
     this._element.querySelector('.element__delete').addEventListener('click', () => {
-      this._element.closest('.element').remove()
+      //this._element.closest('.element').remove();
+      this._element.remove();
       this._element = null;    
     });
 

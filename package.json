@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Проект по созданию одностраничного адаптивного сайта с использоанием html, css и javascript. \r В проекте с помощью JS реализовано:\r - открытие и закрытие 3 попапов,\r - закрытие попапов по кнопке Esc и нажатию на overlay,\r - создание карточек в гриде через создание экземпляров классов Card,\r - возможность заполнения форм и изменения данных профиля на странице или добавления новых карточек,\r - возможность ставить лайки карточкам и удалять их,\r - возможность удалять карточки со страницы,\r - валидация форм путем создания класса FormValidator.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iartseva/mesto.git"
+  },
+  "author": "Olga Iartseva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iartseva/mesto/issues"
+  },
+  "homepage": "https://github.com/Iartseva/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "autoprefixer": "^10.4.8",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.13",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "dependencies": {
+    "core-js": "^3.25.0"
+  }
+}
