@@ -1,11 +1,12 @@
 class Card {
-  constructor(name, link, templateSelector, showPopupImage) {
-    this._name = name;
-    this._link = link;
+  constructor(data, templateSelector, showPopupImage) {
+    this._name = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
     this._showPopupImage = showPopupImage;
     this._element = this._getTemplate();
     this._image = this._element.querySelector('.element__image');
+    
  }
   // получаем шаблон
   _getTemplate() {

@@ -21,6 +21,8 @@ const elementContainer = '.elements';
 const popupEdit = '.popup_type_edit';
 const popupImage = '.popup_type_image';
 const popupAdd = '.popup_type_add';
+const profileName = '.profile__name';
+const profileDescription = '.profile__description';
 
 const buttonEdit = document.querySelector('.profile__edit-button'); //кнопка открытия
 const buttonAdd = document.querySelector('.profile__add-button');//кнопка открытия
@@ -35,4 +37,4 @@ const inputDescription = document.querySelector('.popup__input_type_role');
 
 export {initialCards, selectorsForValidate, elementContainer, 
   popupEdit, popupImage, popupAdd,
-buttonEdit, buttonAdd, buttonSubmitAdd, formEdit, formAdd, inputTitlePlace, inputLink, inputName, inputDescription};
+buttonEdit, buttonAdd, buttonSubmitAdd, formEdit, formAdd, inputTitlePlace, inputLink, inputName, inputDescription, profileName, profileDescription};

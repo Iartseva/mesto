@@ -9,17 +9,18 @@ import UserInfo from "./components/UserInfo.js";
 import {initialCards, selectorsForValidate, elementContainer, 
   popupEdit, popupImage, popupAdd,
   buttonEdit, buttonAdd, buttonSubmitAdd, formEdit, formAdd, 
-  inputTitlePlace, inputLink, inputName, inputDescription} from "./utils/data.js";
+  profileName, profileDescription} from "./utils/data.js";
+
+// создание карточки 
+function createCard(item) {
+  const card = new Card(item, '#cards', showPopupImage);
+    initialCardsList.addItem(card.generateCard());
+  }
 
 //добавление первоначальных карточек
 const initialCardsList = new Section({ items: initialCards, 
-  renderer: (item) => {
-    const card = new Card(item.name, item.link, '#cards', showPopupImage);
-        const newCard = card.generateCard();
-        initialCardsList.addItem(newCard);
-    }
-    },
-    elementContainer);
+  renderer: createCard},
+  elementContainer);
     
 initialCardsList.renderItems(initialCards);
 
@@ -32,12 +33,8 @@ function showPopupImage(name, link) {
 }
 
 //попап добавления карточки
-const popupAddCard = new PopupWithForm(popupAdd, () => {
-const card = {
-  name: inputTitlePlace.value,
-  link: inputLink.value,
-  }
-  initialCardsList.renderer(card);
+const popupAddCard = new PopupWithForm(popupAdd, (dataInputs) => {
+  initialCardsList.renderer(dataInputs);
 }); 
 
 popupAddCard.setEventListeners();
@@ -49,18 +46,15 @@ buttonAdd.addEventListener('click', () => {
 });
 
 //попап редактирования профиля
-const popupEditProfile = new PopupWithForm(popupEdit, () => {
-  user.setUserInfo({ name: inputName.value, description: inputDescription.value });
+const user = new UserInfo({NameSelector: profileName, DescriptionSelector: profileDescription});
+const popupEditProfile = new PopupWithForm(popupEdit, (dataInputs) => {
+  user.setUserInfo(dataInputs);
 });
 
 popupEditProfile.setEventListeners();
-const user = new UserInfo({NameSelector: '.profile__name', DescriptionSelector: '.profile__description'});
 
 buttonEdit.addEventListener('click', () => {
-  const userData = user.getUserInfo();
-  console.log(userData);
-  inputName.value = userData.name;
-  inputDescription.value = userData.description;
+  popupEditProfile.setInputValues(user.getUserInfo());
   validatorFormEditProfile.cleanError();
   popupEditProfile.open();
 });
