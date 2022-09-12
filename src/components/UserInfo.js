@@ -14,15 +14,9 @@ class UserInfo {
   }
 
   setUserInfo(data) {
-    this._name.textContent = data.name;
-    this._description.textContent = data.about;
-    this._avatar.src = data.avatar;
-    this._avatar.alt = data.name;
-  }
-
-  setAvatar(data) {
-    this._avatar.src = data.avatar;
-    this._avatar.alt = data.name;
+    ({name: this._name.textContent, 
+      about: this._description.textContent, 
+      avatar: this._avatar.src} = data);
   }
 }
 

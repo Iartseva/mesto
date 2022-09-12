@@ -2,7 +2,6 @@ class Popup {
   constructor(selectorPopup) {
     this._popup = document.querySelector(selectorPopup);
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._buttonSubmit = this._popup.querySelector('.popup__button-submit');
   }
 
   open() {
@@ -20,21 +19,13 @@ class Popup {
       this.close();
     }
   }
-
-  renderLoading(isLoading) {
-    if (isLoading) {
-      this._buttonSubmit.textContent = 'Сохранение...';
-    } else {
-      this._buttonSubmit.textContent = 'Сохранить';
-    }
-  }
   
   setEventListeners() {
-    this._popup.addEventListener('click', (evt) => {
+    this._popup.addEventListener('mousedown', (evt) => {
       if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__button-close')) {
         this.close();
       }
-    });
+    })
     }
     
   }

@@ -4,17 +4,20 @@ class Api {
     this._headers = headers; 
 }
 
+//проверка ответа
+_checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status}`)
+}
+
 // загрузка данных о пользователе
 getUserInfo() {
   return fetch(`${this._url}/users/me`, {
     headers: this._headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //загрузка первоначальных карточек
@@ -22,12 +25,7 @@ getInitialCard() {
   return fetch(`${this._url}/cards`, {
     headers: this._headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //изменение информации профиля
@@ -40,12 +38,7 @@ editProfile(data) {
       about: data.description
     })
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //смена аватара
@@ -57,12 +50,7 @@ changeAvatar(data) {
     }),
     headers: this._headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //добавление карточки
@@ -75,12 +63,7 @@ addNewCard(data) {
       link: data.link
     })
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //добавление лайка
@@ -89,12 +72,7 @@ setLike(cardId) {
     method: 'PUT',
     headers: this._headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //удаление лайка
@@ -103,12 +81,7 @@ deleteLike(cardId) {
     method: 'DELETE',
     headers: this._headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 
 //удаление карточки
@@ -117,13 +90,7 @@ deleteCard(cardId) {
     method: 'DELETE',
     headers: this._headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`)
-})
+  .then(this._checkResponse)
 }
 }
-
 export default Api;
